@@ -7,6 +7,7 @@ public:
 	List(const List<E>&) = delete;
 	void operator = (const List<E>&) = delete;
 	List(){}
+	virtual ~List() {}
 	virtual void insert(E element) = 0;
 	virtual void append(E element) = 0;
 	virtual void setElement(E element) = 0;
