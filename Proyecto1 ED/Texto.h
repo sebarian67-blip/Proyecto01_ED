@@ -3,6 +3,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <stdexcept>
 #include"DLinkedList.h"
 #include"Pair.h"
 #include "Trie.h"
@@ -18,21 +19,35 @@ private:
 				palabraLimpia += c + 32;
 			else if (c >= 'a' && c <= 'z') //Si es minuscula solamente lo inserta
 				palabraLimpia += c;
-			else if (c >= 160 && c <= 164 || c == 130) //Si es con tidle, lo inserta
+
+
+
+			else if (c == -61 || c == -95 || c == -87 || c == -83 || c == -77 || c == -70 || c == -68 || c == -79) {
 				palabraLimpia += c;
+			}
+
+			else if (c == -127 || c == -119 || c == -115 || c == -109 || c == -102 || c == -100 || c == -111) {
+				palabraLimpia += c + 32;
+			}
 
 		}
 		return palabraLimpia;
 	}
 
 	
-public:
+public: 
+	inline static List<Pair<string, int>>* lista = nullptr;
+
 
 	static void leer(string nombre) {
-		List<Pair<string, int>>* lista;
 
 
 		ifstream archivo(nombre); //abrir el archivo
+
+
+		if (!archivo.is_open()) {
+			throw runtime_error("Archivo no encontrado");
+		}
 		lista = new DLinkedList<Pair<string, int>>(); //crear una lista de Pair
 		string linea;
 		int contadorLinea = 1;
@@ -51,11 +66,13 @@ public:
 			contadorLinea++;
 		}
 		lista->print();
+		archivo.close();
 		delete lista;
 	}
 
-
-
-	
+	void liberar() {
+		delete lista;
+		lista = nullptr;
+	}
 };
 
