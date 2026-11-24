@@ -157,10 +157,14 @@
     <ClInclude Include="MinHeap.h" />
     <ClInclude Include="Pair.h" />
     <ClInclude Include="Salida.h" />
+    <ClInclude Include="Texto.h" />
     <ClInclude Include="TopPalabras.h" />
     <ClInclude Include="Trie.h" />
     <ClInclude Include="TrieNode.h" />
     <ClInclude Include="Util.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="prueba.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
