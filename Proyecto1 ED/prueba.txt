@@ -1,7 +1,6 @@
-PRUEBA de texto!@!^(*@&#(*@&
-hola
-hombre-lobo
-Árbol
-ñema
-Ñema
-pingüino
+El árbol de datos guarda datos en el árbol binario.
+La memoria y el código crecen en el árbol, mientras el código limpia datos.
+hombre-lobo y pingüino suben al árbol con ñema y Ñema.
+PRUEBA de texto con símbolos!@# y números 12345 en la línea cuatro.
+El código limpio y el árbol fuerte ayudan a leer datos y memoria.
+Pingüino, árbol y código aparecen en distintas líneas para probar el top.

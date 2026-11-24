@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
@@ -157,10 +156,14 @@
     <ClInclude Include="MinHeap.h" />
     <ClInclude Include="Pair.h" />
     <ClInclude Include="Salida.h" />
+    <ClInclude Include="Texto.h" />
     <ClInclude Include="TopPalabras.h" />
     <ClInclude Include="Trie.h" />
     <ClInclude Include="TrieNode.h" />
     <ClInclude Include="Util.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="prueba.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
