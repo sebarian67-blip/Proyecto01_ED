@@ -40,7 +40,7 @@ private:
 	
 public: 
 	inline static List<Pair<string, int>>* lista = nullptr; //poder acceder a la lista sin problemas
-
+	inline static List<string>* listaLineas = nullptr;
 
 	static void leer(string nombre) {
 
@@ -52,9 +52,11 @@ public:
 			throw runtime_error("Archivo no encontrado");
 		}
 		lista = new DLinkedList<Pair<string, int>>(); //crear una lista de Pair
+		listaLineas = new DLinkedList<string>();
 		string linea;
-		int contadorLinea = 1;
+		int contadorLinea = 0;
 		while (getline(archivo, linea)) { //conseguir cada linea del texto
+			listaLineas->append(linea);
 
 			for (char& c : linea) { //revisar si hay un guion para separarlo con espacio
 				if (c == '-')
@@ -74,7 +76,9 @@ public:
 
 	void liberar() {
 		delete lista;
+		delete listaLineas;
 		lista = nullptr;
+		listaLineas = nullptr;
 	}
 };
 

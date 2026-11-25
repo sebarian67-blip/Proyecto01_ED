@@ -7,9 +7,12 @@
 #include "Texto.h"
 
 using namespace std;
-int main() {
+
+/*int main() {
 	SetConsoleOutputCP(1252); //ponerlo en la codificacion de ANSI Windows 1252
 	Texto lectura;
 	lectura.leer("prueba.txt");
+	lectura.listaLineas->print();
 	lectura.liberar();
 }
+*/
