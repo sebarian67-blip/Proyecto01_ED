@@ -15,19 +15,22 @@ private:
 		string palabraLimpia; //crear un nuevo string para la palabra arreglada
 
 		for (char c : palabra) { //Si es matuscula conviernte a minuscula restando el valor ASCII
-			if (c >= 'A' && c <= 'Z')
-				palabraLimpia += c + 32;
-			else if (c >= 'a' && c <= 'z') //Si es minuscula solamente lo inserta
-				palabraLimpia += c;
+			unsigned char uc = static_cast<char>(c);
+
+			if (uc >= 'A' && uc <= 'Z')
+				palabraLimpia += static_cast<char>(uc + 32);
+
+			else if (uc >= 'a' && uc <= 'z') //Si es minuscula solamente lo inserta
+				palabraLimpia += static_cast<char>(uc);
 
 
 
-			else if (c == -61 || c == -95 || c == -87 || c == -83 || c == -77 || c == -70 || c == -68 || c == -79) {
-				palabraLimpia += c;
+			else if (uc == 193 || uc == 201 || uc == 205 || uc == 209 || uc == 211 || uc == 218 || uc == 220) {
+				palabraLimpia += static_cast<char>(uc + 32);
 			}
 
-			else if (c == -127 || c == -119 || c == -115 || c == -109 || c == -102 || c == -100 || c == -111) {
-				palabraLimpia += c + 32;
+			else if (uc == 225 || uc == 233 || uc == 237 || uc == 241 || uc == 243 || uc == 250 || uc == 252) {
+				palabraLimpia += static_cast<char>(uc);
 			}
 
 		}
@@ -67,7 +70,6 @@ public:
 		}
 		lista->print();
 		archivo.close();
-		delete lista;
 	}
 
 	void liberar() {
