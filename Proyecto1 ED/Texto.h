@@ -14,7 +14,7 @@ private:
 		int contador = 0;
 		string palabraLimpia; //crear un nuevo string para la palabra arreglada
 
-		for (char c : palabra) { //Si es matuscula conviernte a minuscula restando el valor ASCII
+		for (char c : palabra) { //Si es matuscula conviernte a minuscula restando el valor ANSI
 			unsigned char uc = static_cast<char>(c);
 
 			if (uc >= 'A' && uc <= 'Z')
@@ -25,7 +25,7 @@ private:
 
 
 
-			else if (uc == 193 || uc == 201 || uc == 205 || uc == 209 || uc == 211 || uc == 218 || uc == 220) {
+			else if (uc == 193 || uc == 201 || uc == 205 || uc == 209 || uc == 211 || uc == 218 || uc == 220) { //lo mismo pero con tildes
 				palabraLimpia += static_cast<char>(uc + 32);
 			}
 
@@ -39,7 +39,7 @@ private:
 
 	
 public: 
-	inline static List<Pair<string, int>>* lista = nullptr;
+	inline static List<Pair<string, int>>* lista = nullptr; //poder acceder a la lista sin problemas
 
 
 	static void leer(string nombre) {
