@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include <sstream>
 #include <stdexcept>
 #include"DLinkedList.h"
 #include"Pair.h"
@@ -37,6 +36,14 @@ private:
 		return palabraLimpia;
 	}
 
+	static void procesar(const string& palabra, int contadorLinea) { //revisar que la palabra no este vacia y pasarla a limpiar para poner en la lista
+		if (palabra.empty())
+			return;
+		string limpia = convertir(palabra);
+		if (!limpia.empty()) {
+			lista->append(Pair<string, int>(limpia, contadorLinea));
+		}
+	}
 	
 public: 
 	inline static List<Pair<string, int>>* lista = nullptr; //poder acceder a la lista sin problemas
@@ -58,17 +65,20 @@ public:
 		while (getline(archivo, linea)) { //conseguir cada linea del texto
 			listaLineas->append(linea);
 
-			for (char& c : linea) { //revisar si hay un guion para separarlo con espacio
-				if (c == '-')
-					c = ' ';
+			string palabra;
+			for (char& c : linea) { //revisar si hay un separador de palabra para dividir la linea
+				if (c == '-' || c == ' ' || c == '\t' || c == '\r') {
+					procesar(palabra, contadorLinea);
+					palabra.clear();
+				}
+				else {
+					palabra += c;
+				}
 			}
 
-			stringstream ss(linea); //revisar cada palabra en cada linea
-			string palabra;
-			while (ss >> palabra) {
-				lista->append(Pair(convertir(palabra), contadorLinea)); //inserta el return de convertir y la linea en que aparecio
-			}
+			procesar(palabra, contadorLinea);
 			contadorLinea++;
+
 		}
 		lista->print();
 		archivo.close();
